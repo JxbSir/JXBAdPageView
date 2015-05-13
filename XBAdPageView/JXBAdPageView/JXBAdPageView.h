@@ -26,7 +26,7 @@ typedef void (^JXBAdPageCallback)(NSInteger clickIndex);
 @interface JXBAdPageView : UIView
 @property(nonatomic,assign)BOOL                     bWebImage; //设置是否为网络图片
 @property(nonatomic,strong)UIPageControl            *pageControl;
-@property(nonatomic,weak)id<JXBAdPageViewDelegate>  delegate;
+@property(nonatomic,assign)id<JXBAdPageViewDelegate>  delegate;
 
 /**
  *  启动函数
