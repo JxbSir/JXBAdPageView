@@ -19,8 +19,9 @@
     [super viewDidLoad];
     
     JXBAdPageView* adView = [[JXBAdPageView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 150)];
+    adView.iDisplayTime = 2;
     [adView startAdsWithBlock:@[@"m1",@"m2",@"m3",@"m4",@"m5"] block:^(NSInteger clickIndex){
-        NSLog(@"%d",clickIndex);
+        NSLog(@"%d",(int)clickIndex);
     }];
     [self.view addSubview:adView];
 }

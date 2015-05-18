@@ -16,11 +16,11 @@
 @property (nonatomic,strong)UIImageView         *imgPrev;
 @property (nonatomic,strong)UIImageView         *imgCurrent;
 @property (nonatomic,strong)UIImageView         *imgNext;
+@property (nonatomic,strong)NSTimer             *myTimer;
 @property (nonatomic,assign)JXBAdPageCallback   myBlock;
 @end
 
 @implementation JXBAdPageView
-@synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -109,11 +109,11 @@
     NSString* nextImage = [_arrImage objectAtIndex:next];
     if(_bWebImage)
     {
-        if(delegate && [delegate respondsToSelector:@selector(setWebImage:imgUrl:)])
+        if(_delegate && [_delegate respondsToSelector:@selector(setWebImage:imgUrl:)])
         {
-            [delegate setWebImage:_imgPrev imgUrl:prevImage];
-            [delegate setWebImage:_imgCurrent imgUrl:curImage];
-            [delegate setWebImage:_imgNext imgUrl:nextImage];
+            [_delegate setWebImage:_imgPrev imgUrl:prevImage];
+            [_delegate setWebImage:_imgCurrent imgUrl:curImage];
+            [_delegate setWebImage:_imgNext imgUrl:nextImage];
         }
         else
         {
@@ -129,6 +129,9 @@
         _imgNext.image = [UIImage imageNamed:nextImage];
     }
     [_scView scrollRectToVisible:CGRectMake(self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:NO];
+    
+    if (_iDisplayTime > 0)
+        [self startTimerPlay];
 }
 
 /**
@@ -138,11 +141,26 @@
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    if (_myTimer)
+        [_myTimer invalidate];
     if (scrollView.contentOffset.x >=self.frame.size.width*2)
         _indexShow++;
     else if (scrollView.contentOffset.x < self.frame.size.width)
         _indexShow--;
     [self reloadImages];
+}
+
+- (void)startTimerPlay {
+    _myTimer = [NSTimer scheduledTimerWithTimeInterval:_iDisplayTime target:self selector:@selector(doImageGoDisplay) userInfo:nil repeats:NO];
+}
+
+/**
+ *  轮播图片
+ */
+- (void)doImageGoDisplay {
+    [_scView scrollRectToVisible:CGRectMake(self.frame.size.width * 2, 0, self.frame.size.width, self.frame.size.height) animated:YES];
+    _indexShow++;
+    [self performSelector:@selector(reloadImages) withObject:nil afterDelay:0.3];
 }
 
 @end
