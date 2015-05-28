@@ -44,6 +44,7 @@
     _scView.contentSize = CGSizeMake(self.frame.size.width * 3, self.frame.size.height);
     _scView.showsHorizontalScrollIndicator = NO;
     _scView.showsVerticalScrollIndicator = NO;
+    [_scView setTranslatesAutoresizingMaskIntoConstraints:YES];
     [self addSubview:_scView];
     
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAds)];
