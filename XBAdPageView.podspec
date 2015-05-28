@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "JXBAdPageView"
-  s.version      = "1.0"
+  s.version      = "1.2"
   s.summary      = "An ad page view."
   s.homepage     = "https://github.com/JxbSir"
   s.license      = "Peter"
