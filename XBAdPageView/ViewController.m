@@ -22,25 +22,11 @@
     _adView.iDisplayTime = 2;
     [_adView startAdsWithBlock:@[@"m1",@"m2",@"m3",@"m4",@"m5"] block:^(NSInteger clickIndex){
         NSLog(@"%d",(int)clickIndex);
+        
+        
+        
     }];
     [self.view addSubview:_adView];
 }
 
-//- (BOOL)shouldAutorotate {
-//    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-//    if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
-//    {
-//        CGFloat w = [UIScreen mainScreen].bounds.size.width;
-//        _adView.frame = CGRectMake(0, 20, w, 100);
-//    }
-//    else
-//    {
-//        CGFloat w = [UIScreen mainScreen].bounds.size.width;
-//        _adView.frame = CGRectMake(0, 20, w, 100);
-//    }
-//    return YES ;
-//}
-//- (NSUInteger)supportedInterfaceOrientations {
-//    return UIInterfaceOrientationMaskAllButUpsideDown;
-//}
 @end

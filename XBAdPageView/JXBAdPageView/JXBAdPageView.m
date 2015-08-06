@@ -88,6 +88,9 @@
     if (_myBlock != NULL) {
         _myBlock(_indexShow);
     }
+    if (_myTimer)
+        [_myTimer invalidate];
+    [self startTimerPlay];
 }
 
 /**
