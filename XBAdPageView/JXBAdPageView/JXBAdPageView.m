@@ -17,7 +17,7 @@
 @property (nonatomic,strong)UIImageView         *imgCurrent;
 @property (nonatomic,strong)UIImageView         *imgNext;
 @property (nonatomic,strong)NSTimer             *myTimer;
-@property (nonatomic,assign)JXBAdPageCallback   myBlock;
+@property (nonatomic,strong)JXBAdPageCallback   myBlock;
 @end
 
 @implementation JXBAdPageView

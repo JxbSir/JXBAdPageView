@@ -27,7 +27,7 @@ typedef void (^JXBAdPageCallback)(NSInteger clickIndex);
 @property(nonatomic,assign)NSInteger                iDisplayTime; //广告图片轮播时停留的时间，默认0秒不会轮播
 @property(nonatomic,assign)BOOL                     bWebImage; //设置是否为网络图片
 @property(nonatomic,strong)UIPageControl            *pageControl;
-@property(nonatomic,assign)id<JXBAdPageViewDelegate>  delegate;
+@property(nonatomic,weak)id<JXBAdPageViewDelegate>  delegate;
 
 /**
  *  启动函数
