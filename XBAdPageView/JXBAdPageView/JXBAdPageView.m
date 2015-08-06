@@ -21,6 +21,7 @@
 @end
 
 @implementation JXBAdPageView
+@synthesize myBlock;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -76,7 +77,7 @@
         _scView.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
     _pageControl.numberOfPages = imageArray.count;
     _arrImage = imageArray;
-    _myBlock = block;
+    self.myBlock = block;
     [self reloadImages];
 }
 
@@ -85,8 +86,8 @@
  */
 - (void)tapAds
 {
-    if (_myBlock != NULL) {
-        _myBlock(_indexShow);
+    if (self.myBlock != NULL) {
+        self.myBlock(_indexShow);
     }
     if (_myTimer)
         [_myTimer invalidate];
