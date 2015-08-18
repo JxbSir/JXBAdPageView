@@ -60,7 +60,7 @@
     [_scView addSubview:_imgCurrent];
     [_scView addSubview:_imgNext];
     
-    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height , self.frame.size.width, 0)];
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 10, self.frame.size.width, 10)];
     _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
     [self addSubview:_pageControl];
@@ -91,7 +91,8 @@
     }
     if (_myTimer)
         [_myTimer invalidate];
-    [self startTimerPlay];
+    if (_iDisplayTime > 0)
+        [self startTimerPlay];
 }
 
 /**

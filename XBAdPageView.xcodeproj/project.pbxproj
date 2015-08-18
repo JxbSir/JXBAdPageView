@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D092E42E1B82C3CB0038B358 /* XBAdPageView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D092E42D1B82C3CB0038B358 /* XBAdPageView.podspec */; };
 		D0D0DEB21B032D2800FDABA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D0DEB11B032D2800FDABA7 /* main.m */; };
 		D0D0DEB51B032D2800FDABA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D0DEB41B032D2800FDABA7 /* AppDelegate.m */; };
 		D0D0DEB81B032D2800FDABA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D0DEB71B032D2800FDABA7 /* ViewController.m */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D092E42D1B82C3CB0038B358 /* XBAdPageView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XBAdPageView.podspec; sourceTree = SOURCE_ROOT; };
 		D0D0DEAC1B032D2800FDABA7 /* XBAdPageView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBAdPageView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D0DEB01B032D2800FDABA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0D0DEB11B032D2800FDABA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		D0D0DEAE1B032D2800FDABA7 /* XBAdPageView */ = {
 			isa = PBXGroup;
 			children = (
+				D092E42D1B82C3CB0038B358 /* XBAdPageView.podspec */,
 				D0D0DED51B032D4900FDABA7 /* JXBAdPageView */,
 				D0D0DEB31B032D2800FDABA7 /* AppDelegate.h */,
 				D0D0DEB41B032D2800FDABA7 /* AppDelegate.m */,
@@ -215,6 +218,7 @@
 				D0D0DEBB1B032D2800FDABA7 /* Main.storyboard in Resources */,
 				D0D0DEC01B032D2800FDABA7 /* LaunchScreen.xib in Resources */,
 				D0D0DEBD1B032D2800FDABA7 /* Images.xcassets in Resources */,
+				D092E42E1B82C3CB0038B358 /* XBAdPageView.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +434,7 @@
 				D0D0DED11B032D2800FDABA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0D0DED21B032D2800FDABA7 /* Build configuration list for PBXNativeTarget "XBAdPageViewTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +443,7 @@
 				D0D0DED41B032D2800FDABA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
