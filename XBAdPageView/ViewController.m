@@ -31,6 +31,7 @@
     
     //使用SDWebImage
     _adView = [[JXBAdPageView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 100)];
+    _adView.contentMode = UIViewContentModeScaleAspectFill;
     _adView.iDisplayTime = 2;
     _adView.bWebImage = YES;
     _adView.delegate = self;
@@ -39,7 +40,12 @@
     }];
     [self.view addSubview:_adView];
 }
-
+/**
+ *  在界面销毁时，停止timer ，释放内存
+ */
+- (void)dealloc {
+    [_adView stopAds];
+}
 
 - (void)setWebImage:(UIImageView *)imgView imgUrl:(NSString *)imgUrl {
     [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl]];

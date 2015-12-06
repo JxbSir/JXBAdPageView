@@ -26,7 +26,14 @@
  *  @param block      block，回调点击
  */
 - (void)startAdsWithBlock:(NSArray*)imageArray block:(JXBAdPageCallback)block;
-``` 
+
+/**  
+ *  停止轮播，释放内存
+ */
+- (void)stopAds;
+```   
+
+
 
 ##创建代码
 ```object-c
@@ -36,6 +43,11 @@ adView.iDisplayTime = 2;
     NSLog(@"%d",clickIndex);
 }];
 [self.view addSubview:adView];
+```
+```
+-(void)dealloc {
+  [adView stopAds];
+}
 ```
 
 ##控件展示图

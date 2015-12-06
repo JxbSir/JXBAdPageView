@@ -28,7 +28,7 @@ typedef void (^JXBAdPageCallback)(NSInteger clickIndex);
 @property(nonatomic,assign)BOOL                     bWebImage; //设置是否为网络图片
 @property(nonatomic,strong)UIPageControl            *pageControl;
 @property(nonatomic,assign)id<JXBAdPageViewDelegate>  delegate;
-
+@property(nonatomic) UIViewContentMode contentMode;
 /**
  *  启动函数
  *
@@ -36,4 +36,9 @@ typedef void (^JXBAdPageCallback)(NSInteger clickIndex);
  *  @param block      block，回调点击
  */
 - (void)startAdsWithBlock:(NSArray*)imageArray block:(JXBAdPageCallback)block;
+/**
+ *  停止广告轮播，释放内存
+ *  不再使用 JXBAdPageView 时，先调用 stopAds，释放 timer占用，从runloop中退出。否则会常驻内存。
+ */
+- (void)stopAds;
 @end
