@@ -60,12 +60,28 @@
     [_scView addSubview:_imgCurrent];
     [_scView addSubview:_imgNext];
     
+    
+    
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 10, self.frame.size.width, 10)];
     _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
     [self addSubview:_pageControl];
 }
-
+-(void)setContentMode:(UIViewContentMode)contentMode {
+    _contentMode = contentMode;
+    //设置图片填充模式
+    NSArray * imageViews = @[_imgPrev,_imgCurrent,_imgNext];
+    for (UIImageView * imageView in imageViews) {
+        if (_contentMode) {
+            imageView.contentMode = _contentMode;
+        }
+    }
+}
+-(void)layoutSubviews {
+    _imgPrev.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    _imgCurrent.frame = CGRectMake(self.frame.size.width, 0, self.frame.size.width, self.frame.size.height);
+    _imgNext.frame = CGRectMake(2*self.frame.size.width, 0, self.frame.size.width, self.frame.size.height);
+}
 /**
  *  启动函数
  *
@@ -73,14 +89,23 @@
  *  @param block      click回调
  */
 - (void)startAdsWithBlock:(NSArray*)imageArray block:(JXBAdPageCallback)block {
-    if(imageArray.count <= 1)
+    if(imageArray.count <= 1) {
         _scView.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
+        _pageControl.hidden = true;
+    }else {
+        _pageControl.hidden = false;
+    }
+    
     _pageControl.numberOfPages = imageArray.count;
     _arrImage = imageArray;
     self.myBlock = block;
     [self reloadImages];
 }
-
+- (void)stopAds {
+    if (_myTimer) {
+        [_myTimer invalidate];
+    }
+}
 /**
  *  点击广告
  */
